@@ -1,26 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface CounterProps {
     initialValue?: number;
-    handleClick: () => void;
     children: React.ReactElement
 }
 
 export const Counter = ({
     initialValue = 0,
-    handleClick,
     children
 }: CounterProps) => {
+    let [count, setCount] = useState(0);
 
-    // const initialValue = props.initialValue || 0;
+    const increment = () => {
+        setTimeout(() => {
+            setCount(prevState => prevState + 1);
+        }, 1000)
+        console.log(count);
+    }
 
     return (
         <>
             <div>
-                Contador {initialValue}
-                <button onClick={handleClick}>Enviar</button>
+                Contador {count}
             </div>
-            {children}
+            <br />
+            <button onClick={() => { }}>-</button>
+            <button onClick={increment}>+</button>
         </>
     );
 }

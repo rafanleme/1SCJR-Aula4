@@ -9,7 +9,7 @@ function App() {
   }
 
   return (
-    <Counter handleClick={onSend}>
+    <Counter >
       <p>Aqui está o filho de counter</p>
     </Counter>
   );
